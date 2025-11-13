@@ -9,7 +9,8 @@ Create, view, edit and delete certain entries called "the tasks". The tasks can 
 2. In progress
 3. Completed
 In the note section anything can be written. 
-Tasks can be grouped and viewed on the calendar (as long as they have a day or a deadline).
+Tasks can be grouped. 
+Tasks can be viewed on the calendar (as long as they have a day or a deadline).
 
 ## Setup
 
@@ -32,11 +33,11 @@ The server can also be remotely accessed through https://cs-project-2025-rticd-p
 
 ## Features
 
-* View tasks in different way, including a calendar.
-* Add, edit and remove tasks
+* Viewing tasks in different ways, including a calendar.
+* Adding, editing and removing tasks
 
 ## Git
-Latest stable version is stored in the main branch
+Latest stable version is stored on the main branch
 
 ## Success Criteria
 
