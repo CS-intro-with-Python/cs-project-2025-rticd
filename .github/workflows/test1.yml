@@ -5,7 +5,7 @@ on:
   pull_request:
 
 jobs:
-  Test build and server:
+  Test_build_and_server:
     runs-on: ubuntu-latest
 
     steps:
