@@ -1,7 +1,7 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/DESIFpxz)
-# CS_2024_project
+# Task manager (2025 CS project)
 
-(Everything is work in progress, so is either this README is incomplete and can change)
+(Everything is work in progress, so this README is incomplete and can change)
 
 ## Description
 Create, view, edit and delete certain entries called "the tasks". The tasks can be associated with some day/s (when they are supposed to be done) and the deadline (up until when they need to be done), but they don't necessarily need to have them. Each task also has a status and the note section. The possible values of the status are:
@@ -18,6 +18,8 @@ docker build -t taskmanager <project_repo>
 docker run -p 5000:5000 taskmanager
 
 This will launch it locally
+
+The server can also be remotely accessed through https://cs-project-2025-rticd-production.up.railway.app
 
 ## Requirements
 
