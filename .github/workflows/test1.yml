@@ -5,7 +5,7 @@ on:
   pull_request:
 
 jobs:
-  Test docker build/run and the connection:
+  Test image build, docker run and check if the server responds to requests:
     runs-on: ubuntu-latest
 
     steps:
