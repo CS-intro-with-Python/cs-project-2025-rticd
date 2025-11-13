@@ -1,38 +1,43 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/DESIFpxz)
 # CS_2024_project
 
-## Description
+(Everything is work in progress, so is either this README is incomplete and can change)
 
-Describe the project in 2-3 sentences (You can use more). 
+## Description
+Create, view, edit and delete certain entries called "the tasks". The tasks can be associated with some day/s (when they are supposed to be done) and the deadline (up until when they need to be done), but they don't necessarily need to have them. Each task also has a status and the note section. The possible values of the status are:
+1. Not started
+2. In progress
+3. Completed
+In the note section anything can be written. 
+Tasks can be grouped and viewed on the calendar (as long as they have a day or a deadline).
 
 ## Setup
 
-Describe the steps to set up the environment and run the application. This can be a bash script or docker commands.
+To build and run the backend server:
+docker build -t taskmanager <project_repo>
+docker run -p 5000:5000 taskmanager
 
-```
-Your commands
-
-```
+This will launch it locally
 
 ## Requirements
 
-Describe technologies, libraries, languages you are using (this can be updated in the future).
+Python
+    Flask
+    Requests
+Docker
+Git
+Railway
 
 ## Features
 
-Describe the main features the application performs.
-
-* Feature 1
-* Feature 2
+* View tasks in different way, including a calendar.
+* Add, edit and remove tasks
 
 ## Git
-
-Specify which branch will store the latest stable version of the application
+Latest stable version is stored in the main branch
 
 ## Success Criteria
 
-Describe the criteria by which the success of the project can be determined
-(this will be updated in the future)
-
-* Criteria 1
+* All features are implemented and work correctly
+* The app is convenient to use
 
