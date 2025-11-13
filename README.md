@@ -24,8 +24,8 @@ The server can also be remotely accessed through https://cs-project-2025-rticd-p
 ## Requirements
 
 - Python
-   - Flask
-   - Requests
+   - flask
+   - requests
 - Docker
 - Git
 - Railway
