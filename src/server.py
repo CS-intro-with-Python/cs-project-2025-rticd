@@ -9,7 +9,7 @@ app = Flask(__name__)
 port = os.environ.get("PORT", "5000")
 
 
-app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://postgres:password@localhost:5433/library"
+app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DATABASE_URL")
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
 db = SQLAlchemy(app)
