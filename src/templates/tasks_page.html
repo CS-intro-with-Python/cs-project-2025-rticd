@@ -1,0 +1,27 @@
+
+{% extends "base.html" %}
+
+{% block body_content %}
+<table>
+    <tr>
+        <th>Task</th>
+        <th>Description</th>
+        <th>Deadline</th>
+        <th>Status</th>
+    </tr>
+    {% for task in tasks %}
+    <tr>
+        <td>task[title]</td>
+        <td>task[description]</td>
+        <td>task[deadline]</td>
+        {% if task[status] == 1 %}
+            <td>Not started</td>
+        {% if task[status] == 2 %}
+            <td>In progress</td>
+        {% if task[status] == 3 %}
+            <td>Completed</td>
+    </tr>
+    {% endfor %}
+
+</table>
+{% endblock %}

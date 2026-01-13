@@ -10,9 +10,6 @@ port = int(os.environ.get("PORT", "5000"))
 
 print(port)
 
-db_url = os.environ["DATABASE_URL"]
-print("DATABASE_URL host part:", db_url.split("@")[-1], flush=True)
-
 app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DATABASE_URL")
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
@@ -20,7 +17,6 @@ db = SQLAlchemy(app)
 
 with app.app_context():
     db.create_all()
-
 
 
 class Task(db.Model):
@@ -42,10 +38,11 @@ class Task(db.Model):
 
 @app.route("/")
 def root():
-    return "root ok", 200
+    return redirect("/tasks")
 
 @app.route("/tasks")
 def tasks():
-    return "ok", 200
+    tsks = Task.query.all()
+    return render_template([task.to_dict() for task in tsks])
 
 app.run(host="0.0.0.0", port=port)
