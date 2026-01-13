@@ -8,6 +8,8 @@ app = Flask(__name__)
 
 port = int(os.environ.get("PORT", "5000"))
 
+print(port)
+
 db_url = os.environ["DATABASE_URL"]
 print("DATABASE_URL host part:", db_url.split("@")[-1], flush=True)
 
