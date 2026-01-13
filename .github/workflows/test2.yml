@@ -16,8 +16,12 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-        
+
       - name: Build and start containers
+        env:
+          POSTGRES_DB: library
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: password
         run: docker compose up -d --build
 
       - name: Wait for the server to start
