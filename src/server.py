@@ -45,6 +45,6 @@ def root():
 @app.route("/tasks")
 def tasks():
     tsks = Task.query.all()
-    return render_template([task.to_dict() for task in tsks])
+    return render_template("tasks_page.html", tasks=[task.to_dict() for task in tsks])
 
 app.run(host="0.0.0.0", port=port)
