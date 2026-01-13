@@ -1,5 +1,5 @@
 flask
 requests
-psycopg[binary]
+psycopg2
 SQLAlchemy
 Flask-SQLAlchemy
