@@ -41,6 +41,6 @@ class Task(db.Model):
 
 @app.route("/tasks")
 def tasks():
-    pass
+    return "ok", 200
 
 app.run(host="0.0.0.0", port=port)
