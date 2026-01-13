@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 port = os.environ.get("PORT", "5000")
 
-db_url = os.environ["DATABASE_URL"]
+db_url = int(os.environ["DATABASE_URL"])
 print("DATABASE_URL host part:", db_url.split("@")[-1], flush=True)
 
 app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DATABASE_URL")
