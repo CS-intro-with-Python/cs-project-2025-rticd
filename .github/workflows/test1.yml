@@ -18,7 +18,7 @@ jobs:
           python-version: "3.11"
         
       - name: Install python dependencies
-        run: pip install -r p_requirements.txt
+        run: pip install -r requirements.txt
 
       - name: Build docka image
         run: docker build -t taskmanagerimage .
