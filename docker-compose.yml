@@ -5,6 +5,7 @@ services:
       POSTGRES_DB: tasks_lib
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: password
+      DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB}
       PGDATA: /var/lib/postgresql/data/pgdata
     volumes:
       - pgdata:/var/lib/postgresql/data
@@ -16,8 +17,6 @@ services:
 
   web:
     build: .
-    environment:
-      DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB}
     depends_on:
       db:
         condition: service_healthy
