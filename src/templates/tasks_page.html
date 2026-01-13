@@ -16,10 +16,13 @@
         <td>task[deadline]</td>
         {% if task[status] == 1 %}
             <td>Not started</td>
+        {% endif %}
         {% if task[status] == 2 %}
             <td>In progress</td>
+        {% endif %}
         {% if task[status] == 3 %}
             <td>Completed</td>
+        {% endif %}
     </tr>
     {% endfor %}
 
