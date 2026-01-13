@@ -15,10 +15,6 @@ app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
 db = SQLAlchemy(app)
 
-with app.app_context():
-    db.create_all()
-
-
 class Task(db.Model):
     __tablename__ = "tasks"
     id = db.Column(db.Integer, primary_key=True)
@@ -35,6 +31,12 @@ class Task(db.Model):
             "deadline": self.deadline,
             "status": self.status
         }
+
+with app.app_context():
+    db.create_all()
+
+
+
 
 @app.route("/")
 def root():
