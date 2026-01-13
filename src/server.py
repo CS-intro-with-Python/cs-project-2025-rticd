@@ -38,6 +38,9 @@ class Task(db.Model):
             "status": self.status
         }
 
+@app.route("/")
+def root():
+    return "root ok", 200
 
 @app.route("/tasks")
 def tasks():
