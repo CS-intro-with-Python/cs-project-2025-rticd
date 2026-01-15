@@ -74,4 +74,8 @@ def add_task():
 def tasks_new():
     return render_template("new_task_form.html")
 
+@app.route("/tasks/edit")
+def tasks_edit():
+    
+
 app.run(host="0.0.0.0", port=port)
