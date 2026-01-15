@@ -20,7 +20,7 @@ class Task(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(100), nullable=False)
     description = db.Column(db.String(1000))
-    deadline = db.Column(DateTime(timezone=True))
+    deadline = db.Column(DateTime(timezone=False))
     status = db.Column(db.Integer, nullable=False)
 
     def to_dict(self):
@@ -37,7 +37,6 @@ with app.app_context():
 
 
 
-
 @app.route("/")
 def root():
     return redirect("/tasks")
@@ -46,5 +45,33 @@ def root():
 def tasks():
     tsks = Task.query.all()
     return render_template("tasks_page.html", tasks=[task.to_dict() for task in tsks])
+
+
+@app.route("/add_task", methods=["POST"])
+def add_task():
+    title = request.form.get("title")
+    description = request.form.get("description")
+    deadline = request.form.get("deadline")
+
+    task = Task(
+        title=title,
+        description = description,
+        deadline = deadline,
+        status = 1
+    )
+
+    try:
+        db.session.add(task)
+        db.session.commit()
+        return redirect("/tasks")
+    except Exception:
+        db.session.rollback()
+        return redirect("/tasks")
+
+    
+
+@app.route("/tasks/new")
+def tasks_new():
+    return redirect("/add_task")
 
 app.run(host="0.0.0.0", port=port)
