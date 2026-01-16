@@ -36,6 +36,9 @@ with app.app_context():
     db.create_all()
 
 
+@app.route("/is_up")
+def is_up():
+    return "OK", 200
 
 @app.route("/")
 def root():
@@ -108,4 +111,7 @@ def delete_task():
     
     return redirect("/tasks")
 
-app.run(host="0.0.0.0", port=port)
+
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=port)
