@@ -106,5 +106,5 @@ def delete_task():
         db.session.rollback()
     
     return redirect("/tasks")
-
+# )
 app.run(host="0.0.0.0", port=port)
