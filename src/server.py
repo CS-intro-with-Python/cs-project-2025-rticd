@@ -74,8 +74,21 @@ def add_task():
 def tasks_new():
     return render_template("new_task_form.html")
 
-# @app.route("/tasks/edit")
-# def tasks_edit():
+@app.route("/tasks/<int:task_id>/edit", methods=["GET", "POST"])
+def tasks_edit(task_id):
+    task = Task.query.get_or_404(task_id)
+    if request.method == "POST":
+        task.title = request.form["title"]
+        task.description = request.form.get("description")
+        deadline = request.form.get("deadline")
+
+        try:
+            db.session.commit()
+        except Exception:
+            db.session.rollback()
+        return redirect("tasks")
+    return render_template("edit_tasks", task=task)
     
+
 
 app.run(host="0.0.0.0", port=port)

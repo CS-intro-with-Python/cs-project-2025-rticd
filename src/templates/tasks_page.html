@@ -10,7 +10,9 @@
         <th>Status</th>
     </tr>
     {% for task in tasks %}
-    <tr>
+    <tr class="clickable"
+        data-href="tasks/edit?task_id={{ task["id"] }}"  
+        >
         <td>{{ task["title"] }}</td>
         <td>{{ task["description"] }}</td>
         <td>{{ task["deadline"] }}</td>
@@ -31,4 +33,13 @@
 <a href="/tasks/new">
     <button type="button">Add new task</button>
 </a>
+
+
+<script>
+    document.querySelectorAll("tr.clickable").forEach((row) => {
+        row.addEventListener("click", () => {
+            window.location= row.dataset.href;
+        })
+    })
+</script>
 {% endblock %}
