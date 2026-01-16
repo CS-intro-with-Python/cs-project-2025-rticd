@@ -93,7 +93,7 @@ def tasks_edit():
     return render_template("edit_task.html", task=task)
     
 
-@app.route("/tasks/delete")
+@app.route("/tasks/delete", methods=["POST"])
 def delete_task():
     id = request.args.get("task_id", type=int)
     if id is None:
