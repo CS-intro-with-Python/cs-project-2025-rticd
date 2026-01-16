@@ -90,7 +90,7 @@ def tasks_edit():
         except Exception:
             db.session.rollback()
         return redirect("/tasks")
-    return render_template("edit_task", task=task)
+    return render_template("edit_task.html", task=task)
     
 
 
