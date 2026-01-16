@@ -85,6 +85,7 @@ def tasks_edit():
             task.title = request.form["title"]
             task.description = request.form.get("description")
             deadline = request.form.get("deadline")
+            status = request.form.get("status")
             db.session.commit()
         except Exception:
             db.session.rollback()
@@ -98,7 +99,7 @@ def delete_task():
     if id is None:
         abort(400)
     task = Task.query.get_or_404(id)
-
+    
     try:
         db.session.delete(task)
         db.session.commit()

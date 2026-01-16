@@ -25,7 +25,12 @@
         {% if task["status"] == 3 %}
             <td>Completed</td>
         {% endif %}
-        <button href="tasks/delete?task_id={{ task["id"] }}">Delete task</button>
+        <td> 
+            <form action="/tasks/delete?task_id={{ task['id'] }}">
+                <button type="submit">Delete task</button>
+            </form>
+        </td>
+        
     </tr>
     {% endfor %}
 

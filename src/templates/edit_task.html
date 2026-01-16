@@ -8,7 +8,18 @@
   
     <input type="datetime-local" name="deadline"
            value="{{ task.deadline.strftime('%Y-%m-%dT%H:%M') if task.deadline else '' }}">
-  
+    
+    <select name="status">
+        <option value="1" {% if task.status == 1 %}selected{% endif %}>
+            Not started
+        </option>
+        <option value="2" {% if task.status == 2 %}selected{% endif %}>
+            In progress
+        </option>
+        <option value="3" {% if task.status == 3 %}selected{% endif %}>
+            Completed
+        </option>
+    </select>
     <button type="submit">Save</button>
   </form
 {% endblock %}
