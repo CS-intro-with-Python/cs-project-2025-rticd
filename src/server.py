@@ -76,16 +76,15 @@ def tasks_new():
 
 @app.route("/tasks/edit", methods=["GET", "POST"])
 def tasks_edit():
-    task_id = request.args.get("task_id", type=int)
-    if task_id is None:
+    id = request.args.get("task_id", type=int)
+    if id is None:
         abort(400)
-    task = Task.query.get_or_404(task_id)
+    task = Task.query.get_or_404(id)
     if request.method == "POST":
-        task.title = request.form["title"]
-        task.description = request.form.get("description")
-        deadline = request.form.get("deadline")
-
         try:
+            task.title = request.form["title"]
+            task.description = request.form.get("description")
+            deadline = request.form.get("deadline")
             db.session.commit()
         except Exception:
             db.session.rollback()
@@ -93,5 +92,19 @@ def tasks_edit():
     return render_template("edit_task.html", task=task)
     
 
+@app.route("/tasks/delete")
+def delete_task():
+    id = request.args.get("task_id", type=int)
+    if id is None:
+        abort(400)
+    task = Task.query.get_or_404(id)
+
+    try:
+        db.session.delete(task)
+        db.session.commit()
+    except Exception:
+        db.session.rollback()
+    
+    return redirect("/tasks")
 
 app.run(host="0.0.0.0", port=port)

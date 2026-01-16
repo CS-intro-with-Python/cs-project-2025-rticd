@@ -25,6 +25,7 @@
         {% if task["status"] == 3 %}
             <td>Completed</td>
         {% endif %}
+        <button href="tasks/delete?task_id={{ task["id"] }}">Delete task</button>
     </tr>
     {% endfor %}
 
