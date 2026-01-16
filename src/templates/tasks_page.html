@@ -26,7 +26,7 @@
             <td>Completed</td>
         {% endif %}
         <td> 
-            <form action="/tasks/delete?task_id={{ task['id'] }}">
+            <form action="/tasks/delete?task_id={{ task['id'] }}" onclick="event.stopPropagation();">
                 <button type="submit">Delete task</button>
             </form>
         </td>
