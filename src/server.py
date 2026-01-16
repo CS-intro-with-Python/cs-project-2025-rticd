@@ -89,8 +89,8 @@ def tasks_edit():
             db.session.commit()
         except Exception:
             db.session.rollback()
-        return redirect("tasks")
-    return render_template("edit_tasks", task=task)
+        return redirect("/tasks")
+    return render_template("edit_task", task=task)
     
 
 
