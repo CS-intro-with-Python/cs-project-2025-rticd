@@ -75,7 +75,7 @@ def tasks_new():
     return render_template("new_task_form.html")
 
 @app.route("/tasks/edit", methods=["GET", "POST"])
-def tasks_edit(task_id):
+def tasks_edit():
     task_id = request.args.get("task_id", type=int)
     if task_id is None:
         abort(400)
