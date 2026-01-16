@@ -1,5 +1,5 @@
 import os
-from flask import Flask, jsonify, request, render_template, redirect
+from flask import Flask, abort, jsonify, request, render_template, redirect
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import DateTime
 
@@ -74,8 +74,11 @@ def add_task():
 def tasks_new():
     return render_template("new_task_form.html")
 
-@app.route("/tasks/<int:task_id>/edit", methods=["GET", "POST"])
+@app.route("/tasks/edit", methods=["GET", "POST"])
 def tasks_edit(task_id):
+    task_id = request.args.get("task_id", type=int)
+    if task_id is None:
+        abort(400)
     task = Task.query.get_or_404(task_id)
     if request.method == "POST":
         task.title = request.form["title"]
